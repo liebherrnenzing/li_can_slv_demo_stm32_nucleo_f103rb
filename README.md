@@ -1,23 +1,23 @@
-## Example for STM32F4 Discovery Board
+## Example for STM32F103RB Nucleo Board
 
-This is a basic example which shows how to use the li_can_slv stack on a F4 Discovery board. As you can see in the project folder we have used CubeMX to generate the basic sw layer.
+This is a basic example which shows how to use the li_can_slv stack on a F1 Nucleo board. As you can see in the project folder we have used CubeMX to generate the basic sw layer.
 
 ### Hardware needed 
 
-*   STM32F4 Discovery Board
+*   STM32F1103 RB Nucleo Board
 *	A CAN Bus Break-out Board like this one http://copperhilltech.com/can-bus-breakout-board-5-vdc. Following pins are used for CAN.
 
 	| Pin | Name   |
 	|-----|:------:|
-	| PD0 | CAN_RX |
-	| PD1 | CAN_TX |
+	| PB8 | CAN_RX |
+	| PB9 | CAN_TX |
 
 *  The example also uses this serial pins for some debugging output.
   
   	| Pin  | Name      |
 	|------|:---------:|
-	| PC6  | USART6_TX |
-	| PC7  | USART6_RX |
+	| PA9  | USART1_TX |
+	| PA10 | USART1_RX |
   
 
 ### How to start with the software? ###
@@ -28,7 +28,7 @@ First of all it is necessary to install the STM32CUBEIDE https://www.st.com/en/d
 
 Clone the repository with ``git clone recursive`` because the projects uses submodules. You must use SSH because the submodules used in this example uses SSh URL's. So as an example use. 
 
-``git clone git@github.com:liebherrnenzing/li_can_slv_demo_stm32f4_discovery.git --recursive``
+``git clone git@github.com:liebherrnenzing/li_can_slv_demo_stm32_nucleo_f103rb.git --recursive``
 
 
 ##### Install the needed Tools

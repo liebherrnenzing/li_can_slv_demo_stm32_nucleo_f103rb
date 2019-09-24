@@ -45,27 +45,9 @@ extern "C" {
  * @name MA_W Module
  */
 /** @{ */
-//#define APP_MA_W
-//#define APP_MA_W_SIM
+#define APP_MA_W
+#define APP_MA_W_SIM
 
-/** @} */
-
-/**
- * @name STE1 Module
- */
-/** @{ */
-#define APP_STE1
-#define APP_STE1_SIM
-#define ERR_APP_STE1_MODULE_ADD_FAILED			(MSG_SG_SHIFT(MSG_SUBGROUP_CAN_APPLICATION) |0x0351u)
-/** @} */
-
-/**
- * @name MTE1 Module
- */
-/** @{ */
-//#define APP_MTE1
-//#define APP_MTE1_SIM
-//#define ERR_APP_MTE1_MODULE_ADD_FAILED			(MSG_SG_SHIFT(MSG_SUBGROUP_CAN_APPLICATION) |0x0352u)
 /** @} */
 
 /*--------------------------------------------------------------------------*/

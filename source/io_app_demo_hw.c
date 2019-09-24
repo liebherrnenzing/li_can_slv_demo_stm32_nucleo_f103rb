@@ -30,14 +30,6 @@
 #include "io_app_config.h"
 #include "io_app_demo_hw.h"
 
-#ifdef APP_STE1
-#include "io_app_ste1.h"
-#endif
-
-#ifdef APP_MTE1
-#include "io_app_mte1.h"
-#endif
-
 #ifdef APP_MA_W
 #include "io_app_ma_w.h"
 #endif
@@ -156,14 +148,6 @@ lcsa_errorcode_t app_init(void)
 	module_number = APP_MA_W_MODULE_NR_DEF;
 #endif
 
-#ifdef APP_STE1
-	module_number = APP_STE1_MODULE_NR_DEF;
-#endif
-
-#ifdef APP_MTE1
-	module_number = APP_MTE1_MODULE_NR_DEF;
-#endif
-
 	err = lcsa_init(baudrate);
 	if (err != LCSA_ERROR_OK)
 	{
@@ -192,52 +176,6 @@ lcsa_errorcode_t app_init(void)
 		}
 	}
 #endif // #ifdef APP_MA_W
-
-#ifdef APP_STE1
-	/*-------------------------------------------------------------------*/
-	/* Initialization of the STE1 module if the tuple is available       */
-	/*-------------------------------------------------------------------*/
-	if (err == LCSA_ERROR_OK)
-	{
-		err = app_ste1_init(0, module_number);
-
-		if (err != LCSA_ERROR_OK)
-		{
-			lcsa_send_sensor_error(err, ERR_LVL_CRITICAL, module_number);
-			lcsa_send_sensor_error(ERR_APP_STE1_MODULE_ADD_FAILED, ERR_LVL_CRITICAL, module_number);
-			err2 = lcsa_set_module_critical(APP_STE1_MODULE_TYPE);
-			if ((err2 != LCSA_ERROR_OK) && (err2 != LCSA_ERROR_CONFIG_MODULE_TYPE_NOT_FOUND))
-			{
-#ifdef APP_DEBUG
-				printf("\n set critical not possible");
-#endif
-			}
-		}
-	}
-#endif // #ifdef APP_STE1
-
-#ifdef APP_MTE1
-	/*-------------------------------------------------------------------*/
-	/* Initialization of the MTE1 module if the tuple is available       */
-	/*-------------------------------------------------------------------*/
-	if (err == LCSA_ERROR_OK)
-	{
-		err = app_mte1_init(0, module_number);
-
-		if (err != LCSA_ERROR_OK)
-		{
-			lcsa_send_sensor_error(err, ERR_LVL_CRITICAL, module_number);
-			lcsa_send_sensor_error(ERR_APP_MTE1_MODULE_ADD_FAILED, ERR_LVL_CRITICAL, module_number);
-			err2 = lcsa_set_module_critical(APP_MTE1_MODULE_TYPE);
-			if ((err2 != LCSA_ERROR_OK) && (err2 != LCSA_ERROR_CONFIG_MODULE_TYPE_NOT_FOUND))
-			{
-#ifdef APP_DEBUG
-				printf("\n set critical not possible");
-#endif
-			}
-		}
-	}
-#endif // #ifdef APP_MTE1
 
 #include "tim_ext.h"
 	tim_ecoder_init();
