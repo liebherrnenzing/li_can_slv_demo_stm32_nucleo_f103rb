@@ -25,8 +25,8 @@
  * @{
  */
 
-#ifndef IO_APP_IO_APP_CONFIG_H_
-#define IO_APP_IO_APP_CONFIG_H_
+#ifndef IO_APP_CONFIG_H_
+#define IO_APP_CONFIG_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -66,6 +66,6 @@ extern "C" {
 }// closing brace for extern "C"
 #endif // #ifdef __cplusplus
 
-#endif // #ifndef IO_APP_IO_APP_CONFIG_H_
+#endif // #ifndef IO_APP_CONFIG_H_
 
 /** @} */

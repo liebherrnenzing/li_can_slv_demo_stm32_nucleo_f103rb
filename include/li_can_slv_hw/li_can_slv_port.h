@@ -82,15 +82,18 @@ extern "C" {
 #define li_can_slv_port_get_changeindex()	(9)
 #define li_can_slv_port_get_serialnumber()	(9999999)
 
-#if defined (LI_CAN_SLV_USE_RECONNECT) && defined (LI_CAN_SLV_USE_MAIN_MON)
-#define li_can_slv_port_sync_baudrate(baudrate) main_mon_sync_baudrate(baudrate)
-#endif // #if defined (LI_CAN_SLV_USE_RECONNECT) && defined (LI_CAN_SLV_USE_MAIN_MON)
+#if defined (LI_CAN_SLV_USE_RECONNECT_ON_MAIN_NODE) || defined (LI_CAN_SLV_USE_MAIN_MON)
+#define li_can_slv_port_sync_baudrate(baudrate) app_mainmon_needs_sync_baudrate(baudrate)
+#endif // #if defined (LI_CAN_SLV_USE_RECONNECT_ON_MAIN_NODE) || defined (LI_CAN_SLV_USE_MAIN_MON)
 
 #ifdef LI_CAN_SLV_USE_MAIN_MON
 #define li_can_slv_port_get_mainmon_type() app_get_mainmon_type()
 #endif // #ifdef LI_CAN_SLV_USE_MAIN_MON
 
 #define li_can_slv_port_sw_reset() NVIC_SystemReset()
+
+#define li_can_slv_port_transceiver_enable()	
+#define li_can_slv_port_transceiver_disable()	
 
 #ifdef LI_CAN_SLV_USE_ASYNC_DOWNLOAD_BUFFER_EXTERNAL
 #define li_can_slv_port_dload_add_byte_to_buffer(a) add_byte_to_buffer(a)
@@ -107,12 +110,6 @@ extern "C" {
 #define li_can_slv_start_sps_monitor_handle() out_start_monitor_server();
 #endif // #ifdef SPS_MONITOR_CONNECTION_TYPE_LP
 #endif // #ifdef LI_CAN_SLV_USE_ASYNC_TUNNEL
-
-#define BOOT_NVM_FLASH_END				(0x0801EC00)
-#define BOOT_NVM_CRC_START				((BOOT_NVM_FLASH_END) - 12) /** start address of the 16 Bit CRC */
-#define BOOT_NVM_DOWNLOAD_ID_START		((BOOT_NVM_FLASH_END) - 10) /** start address of the 32 Bit download id */
-#define BOOT_NVM_CRC_START_MON			((BOOT_NVM_FLASH_END) - 6) /** start address of the 16 Bit CRC */
-#define BOOT_NVM_DOWNLOAD_ID_START_MON	((BOOT_NVM_FLASH_END) - 4) /** start address of the 32 Bit download id */
 
 /*--------------------------------------------------------------------------*/
 /* structure/type definitions                                               */

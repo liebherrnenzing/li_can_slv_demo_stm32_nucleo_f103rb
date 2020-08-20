@@ -355,7 +355,9 @@ lcsa_errorcode_t app_ma_w_process_output(void)
 
 	if (cnt >= 100)
 	{
-		//printf("\n.. app ma_w running ..");
+#ifdef ZF_LOG
+		ZF_LOGI("counting zf_log");
+#endif
 		cnt = 0;
 		app_ma_w_tx4_set_word1(0, cnt2++);
 	}

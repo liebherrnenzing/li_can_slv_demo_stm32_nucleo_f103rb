@@ -49,14 +49,13 @@ void tim_ecoder_init(void)
 	MX_TIM4_Init();
 
 	HAL_TIM_Encoder_Start(&htim3,TIM_CHANNEL_ALL);
+	HAL_TIM_Encoder_Start(&htim4,TIM_CHANNEL_ALL);
 
-//	LL_TIM_CC_EnableChannel(TIM3, LL_TIM_CHANNEL_CH1);
-//	LL_TIM_CC_EnableChannel(TIM3, LL_TIM_CHANNEL_CH2);
+//	LL_TIM_CC_EnableChannel(TIM3, LL_TIM_CHANNEL_CH1 | LL_TIM_CHANNEL_CH2);
 //	LL_TIM_EnableCounter(TIM3);
-
-	LL_TIM_CC_EnableChannel(TIM4, LL_TIM_CHANNEL_CH1);
-	LL_TIM_CC_EnableChannel(TIM4, LL_TIM_CHANNEL_CH2);
-	LL_TIM_EnableCounter(TIM4);
+//
+//	LL_TIM_CC_EnableChannel(TIM4, LL_TIM_CHANNEL_CH1 | LL_TIM_CHANNEL_CH2);
+//	LL_TIM_EnableCounter(TIM4);
 
 }
 

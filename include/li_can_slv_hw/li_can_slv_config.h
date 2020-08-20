@@ -41,6 +41,7 @@ extern "C" {
 #define LI_CAN_SLV_USE_UNKNOWN_MODULE
 #define LI_CAN_SLV_SET_MAX_NR_OF_LOGICAL_MODULES (1u)
 
+#define LI_CAN_SLV_NO_XLOAD_INFO
 //#define LI_CAN_SLV_XLOAD_INFO_USER
 //#define LI_CAN_SLV_XLOAD_INFO_BACKWARD_COMPATIBILITY
 
@@ -92,6 +93,7 @@ extern "C" {
 /* HW/architecture definitions                                              */
 /*--------------------------------------------------------------------------*/
 #define LI_CAN_SLV_ARCH_SET_BYTE_ORDER_LITTLE_ENDIAN
+//#define LI_CAN_SLV_ARCH_USE_CANPIE_ADAPTER_ERROR_HANDLER
 #define LI_CAN_SLV_ARCH_USE_CANPIE_CH1_FOR_MAIN_NODE
 #define LI_CAN_SLV_ARCH_MAIN_NODE_MAX_NOF_MSG_OBJ (32)
 

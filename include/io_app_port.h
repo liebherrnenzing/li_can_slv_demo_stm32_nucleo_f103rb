@@ -36,16 +36,40 @@ extern "C" {
 /* included files                                                           */
 /*--------------------------------------------------------------------------*/
 #include "io_app_config.h"
+#include <stdint.h>
+#ifdef TUPLE
+#include "io_tuple.h"
+#endif // #ifdef TUPLE
+
+#ifdef TESTSYS_SYSTEM
+#include "io_testsys.h"
+#include "io_var.h"
+#endif // #ifdef TESTSYS_SYSTEM
+
 #include "li_can_slv.h"
 
 /*--------------------------------------------------------------------------*/
 /* general definitions                                                      */
 /*--------------------------------------------------------------------------*/
-#define app_port_memory_set(ptr, value, num)	memset(ptr, value, num)
+#define HUGE /* define to nothing not used on STM32 or XMC */
+#define INLINE inline
+#define CALL(func) func /* define to func only not used on STM32 XMC */
+#define FAR
+
+//#define APP_CONV_ROTL16 _IROL_
+//#define APP_CONV_ROTL32 _LROL_
 
 /*--------------------------------------------------------------------------*/
 /* structure/type definitions                                               */
 /*--------------------------------------------------------------------------*/
+#ifdef APP_MAIN_MON
+typedef enum
+{
+	APP_MAINMON_UNDEF = 0,
+	APP_MAINMON_MAIN = 1,
+	APP_MAINMON_MON = 2
+} app_mainmon_t;
+#endif // #ifdef APP_MAIN_MON
 
 /*--------------------------------------------------------------------------*/
 /* global variables                                                         */
@@ -54,6 +78,19 @@ extern "C" {
 /*--------------------------------------------------------------------------*/
 /* function prototypes                                                      */
 /*--------------------------------------------------------------------------*/
+#define app_port_memory_set(ptr, value, num)	memset(ptr, value, num)
+#ifdef APP_MAIN_MON
+/**
+ * @brief Returns the module main/monitor identification
+ * @ingroup	modhw
+ * @return modhw_main_mon
+ */
+app_mainmon_t app_get_mainmon_type(void);
+
+app_mainmon_t app_get_mainmon_type_old(void);
+#endif // #ifdef APP_MAIN_MON
+
+#define app_port_get_system_tick()	get_system_tick()
 
 #ifdef __cplusplus
 }
