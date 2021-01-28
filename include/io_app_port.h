@@ -36,7 +36,8 @@ extern "C" {
 /* included files                                                           */
 /*--------------------------------------------------------------------------*/
 #include "io_app_config.h"
-#include <stdint.h>
+#include "li_can_slv.h"
+
 #ifdef TUPLE
 #include "io_tuple.h"
 #endif // #ifdef TUPLE
@@ -45,8 +46,6 @@ extern "C" {
 #include "io_testsys.h"
 #include "io_var.h"
 #endif // #ifdef TESTSYS_SYSTEM
-
-#include "li_can_slv.h"
 
 /*--------------------------------------------------------------------------*/
 /* general definitions                                                      */

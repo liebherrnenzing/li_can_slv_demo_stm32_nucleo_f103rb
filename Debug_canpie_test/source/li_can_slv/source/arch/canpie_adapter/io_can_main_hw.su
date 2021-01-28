@@ -1,0 +1,11 @@
+io_can_main_hw.c:95:24:can_main_hw_init	8	static
+io_can_main_hw.c:112:24:can_main_hw_deinit	8	static
+io_can_main_hw.c:119:24:can_main_hw_msg_obj_init	16	static
+io_can_main_hw.c:128:24:can_main_hw_free_tx_objs	4	static
+io_can_main_hw.c:145:24:can_main_hw_get_next_free_msg_obj	24	static
+io_can_main_hw.c:171:24:can_main_hw_enable	16	static
+io_can_main_hw.c:197:24:can_main_hw_disable	16	static
+io_can_main_hw.c:209:24:can_main_hw_define_msg_obj	40	static
+io_can_main_hw.c:305:24:can_main_hw_set_baudrate	24	static
+io_can_main_hw.c:359:24:can_main_hw_send_msg_obj_blocking	40	static
+io_can_main_hw.c:401:24:can_main_hw_send_msg_obj_none_blocking	40	static

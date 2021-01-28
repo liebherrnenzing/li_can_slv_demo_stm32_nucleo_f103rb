@@ -1,0 +1,7 @@
+io_can_error.c:253:24:error_syserr_send	40	static
+io_can_error.c:280:24:error_syserr_send_with_info_byte	40	static
+io_can_error.c:304:24:error_syserr_send_full	24	static
+io_can_error.c:523:24:error_syserr_get	48	static
+io_can_error.c:542:24:error_syserr_get_with_info_byte	48	static
+io_can_error.c:566:24:error_syserr_get_full	24	static
+io_can_error.c:688:10:error_syserr_num	4	static

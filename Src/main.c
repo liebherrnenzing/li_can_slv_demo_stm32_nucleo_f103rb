@@ -27,7 +27,15 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "io_app_demo_hw.h"
-#include "stdio.h"
+
+#include <stdio.h>
+
+#ifdef ZF_LOG
+#define ZF_LOG_LEVEL ZF_LOG_DEBUG
+#include "zf_log.h"
+#endif
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,9 +50,30 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+#ifdef ZF_LOG
+static void custom_output_callback(const zf_log_message *msg, void *arg);
+#endif /* #ifdef ZF_LOG */
 
 /* USER CODE END PM */
-
+#ifdef ZF_LOG
+static void custom_output_callback(const zf_log_message *msg, void *arg)
+{
+	(void) arg;
+	/* p points to the log message end. By default, message is not terminated
+	 * with 0, but it has some space allocated for EOL area, so there is always
+	 * some place for terminating zero in the end (see ZF_LOG_EOL_SZ define in
+	 * zf_log.c).
+	 */
+	*msg->p = 0;
+#if defined(OUTPUT_DEBUG_STRING)
+	OutputDebugStringA(msg->buf);
+#elif defined(OUTPUT_SYSLOG)
+	syslog(syslog_level(msg->lvl), "%s", msg->tag_b);
+#else
+	printf("%s", msg->buf);
+#endif
+}
+#endif
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
@@ -67,18 +96,18 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 int __io_putchar(int ch)
 {
-	char nl = '\n';
-	char cr = '\r';
+//	char nl = '\n';
+//	char cr = '\r';
 
-	if (ch == nl)
-	{
-		HAL_UART_Transmit(&huart1, (uint8_t *) &nl, 1, 0xFFFF);
-		HAL_UART_Transmit(&huart1, (uint8_t *) &cr, 1, 0xFFFF);
-	}
-	else
-	{
+//	if (ch == nl)
+//	{
+//		HAL_UART_Transmit(&huart1, (uint8_t *) &nl, 1, 0xFFFF);
+//		HAL_UART_Transmit(&huart1, (uint8_t *) &cr, 1, 0xFFFF);
+//	}
+//	else
+//	{
 		HAL_UART_Transmit(&huart1, (uint8_t *) &ch, 1, 0xFFFF);
-	}
+//	}
 	return ch;
 }
 
@@ -115,6 +144,13 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
+#ifdef ZF_LOG
+	const unsigned put_mask = ZF_LOG_PUT_STD; /* ZF_LOG_PUT_CTX | ZF_LOG_PUT_MSG; ZF_LOG_PUT_STD; */
+	zf_log_set_output_v(put_mask, 0, custom_output_callback);
+#endif /* #ifdef ZF_LOG */
+
+
   app_main();
 
   /* USER CODE END 2 */
@@ -124,15 +160,17 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-      uint16_t enc_cnt = TIM3->CNT;
-	  printf("Enc1: %d\n", enc_cnt);
+#ifdef ZF_LOG
+//	  ZF_LOGD("running\n");
+#endif
+	/* USER CODE BEGIN 3 */
+	  uint16_t enc_cnt = TIM3->CNT;
+	  //printf("Enc1: %d\n", enc_cnt);
 
 	  uint16_t enc_cnt2 = TIM4->CNT;
-	  printf("Enc2: %d\n", enc_cnt2);
+	  //printf("Enc2: %d\n", enc_cnt2);
 
-	  HAL_Delay(500);
+	  HAL_Delay(2000);
   }
   /* USER CODE END 3 */
 }

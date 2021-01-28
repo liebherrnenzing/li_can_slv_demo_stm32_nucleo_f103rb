@@ -6,7 +6,28 @@ from configparser import *
 import git
 from git import *
 
+@task
+def diff(c):
+    c.run("git difftool --dir-diff")
+    c.run("git submodule foreach git difftool -d")
+
+
+@task
+def diff_origin(c):
+    c.run("git difftool origin/master --dir-diff")
+    c.run("git submodule foreach git difftool origin/master -d")
+
     
+@task
+def check(c):
+    c.run("git submodule foreach git status")
+
+
+@task
+def update_all(c):
+    c.run("git submodule update --remote")
+
+
 @task(help={'submodule_name':"Name of the submodule to add."})
 def add_submodule_from_base(c, submodule_name):
     for section, path, url, branch in get_submodule_from_base():

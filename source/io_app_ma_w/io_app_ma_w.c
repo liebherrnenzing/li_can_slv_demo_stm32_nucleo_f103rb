@@ -31,7 +31,11 @@
 #include "io_app_ma_w.h"
 #include "io_app_convc.h"
 
-#include "stdio.h"
+#ifdef ZF_LOG
+//#define ZF_LOG_LEVEL ZF_LOG_DEBUG
+#include "zf_log.h"
+#endif // #ifdef ZF_LOG
+
 /*--------------------------------------------------------------------------*/
 /* general definitions (private/not exported)                               */
 /*--------------------------------------------------------------------------*/
@@ -355,9 +359,6 @@ lcsa_errorcode_t app_ma_w_process_output(void)
 
 	if (cnt >= 100)
 	{
-#ifdef ZF_LOG
-		ZF_LOGI("counting zf_log");
-#endif
 		cnt = 0;
 		app_ma_w_tx4_set_word1(0, cnt2++);
 	}
@@ -374,7 +375,7 @@ lcsa_errorcode_t app_ma_w_process_output(void)
 /*--------------------------------------------------------------------------*/
 static void app_ma_w_image_not_ok_callback(void)
 {
-	printf("\n.. last image was not okay ..");
+	//printf("\n.. last image was not okay ..");
 }
 
 static void app_ma_w_image_ok_callback(void)
@@ -386,7 +387,7 @@ static void app_ma_w_image_ok_callback(void)
 
 	if (cnt >= 100)
 	{
-		printf("\n.. the last 100 images were okay ..");
+	//	printf("\n.. the last 100 images were okay ..");
 
 		cnt = 0;
 		app_ma_w_tx1_set_word1(0, cnt2++);

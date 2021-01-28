@@ -1,0 +1,3 @@
+io_can_main_hw_handler.c:117:9:can_main_hw_handler_rx	40	static
+io_can_main_hw_handler.c:174:9:can_main_hw_handler_tx	40	static
+io_can_main_hw_handler.c:221:9:can_main_hw_handler_error	16	static

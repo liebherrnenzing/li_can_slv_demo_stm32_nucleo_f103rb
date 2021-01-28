@@ -26,6 +26,15 @@ extern "C" {
 #endif // #ifdef __cplusplus
 
 
+//#define LI_CAN_SLV_DEBUG_CAN_INIT
+//#define LI_CAN_SLV_DEBUG_CAN_INIT_MOD
+//#define LI_CAN_SLV_DEBUG_CAN_INIT_MAIN
+//#define LI_CAN_SLV_DEBUG_CAN_INIT_MON
+
+//#define LI_CAN_SLV_DEBUG_CAN_INIT_HW
+
+//#define LI_CAN_SLV_DEBUG_SYNC_TX
+
 #ifdef __cplusplus
 }// closing brace for extern "C"
 #endif // #ifdef __cplusplus

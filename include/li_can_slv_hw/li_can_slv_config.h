@@ -35,21 +35,22 @@ extern "C" {
 /*--------------------------------------------------------------------------*/
 /* general definitions                                                      */
 /*--------------------------------------------------------------------------*/
-//#define LI_CAN_SLV_DEBUG
+#define LI_CAN_SLV_DEBUG
 #define LI_CAN_SLV_BASIC
 
 #define LI_CAN_SLV_USE_UNKNOWN_MODULE
-#define LI_CAN_SLV_SET_MAX_NR_OF_LOGICAL_MODULES (1u)
-
-#define LI_CAN_SLV_NO_XLOAD_INFO
-//#define LI_CAN_SLV_XLOAD_INFO_USER
-//#define LI_CAN_SLV_XLOAD_INFO_BACKWARD_COMPATIBILITY
+#define LI_CAN_SLV_SET_MAX_NR_OF_LOGICAL_MODULES (2u)
 
 /*--------------------------------------------------------------------------*/
 /* special definitions                                                      */
 /*--------------------------------------------------------------------------*/
 //#define LI_CAN_SLV_USE_MODULE_IO_CONFIG
 //#define LI_CAN_SLV_USE_TUPLE
+//#define LI_CAN_SLV_USE_UNKNOWN_MODULE
+
+#define LI_CAN_SLV_DO_NOT_USE_XLOAD_INFO
+//#define LI_CAN_SLV_XLOAD_INFO_USER
+//#define LI_CAN_SLV_XLOAD_INFO_BACKWARD_COMPATIBILITY
 
 #ifdef MAIN_MON
 /*--------------------------------------------------------------------------*/
@@ -81,20 +82,20 @@ extern "C" {
 /*--------------------------------------------------------------------------*/
 /* LI_CAN_SLV Asynchronous protocol definitions                             */
 /*--------------------------------------------------------------------------*/
-//#define LI_CAN_SLV_USE_ASYNC
-//#define LI_CAN_SLV_USE_ASYNC_DOWNLOAD
-////#define LI_CAN_SLV_USE_ASYNC_DOWNLOAD_BUFFER_EXTERNAL
+#define LI_CAN_SLV_USE_ASYNC
+#define LI_CAN_SLV_USE_ASYNC_DOWNLOAD
+//#define LI_CAN_SLV_USE_ASYNC_DOWNLOAD_BUFFER_EXTERNAL
 //#define LI_CAN_SLV_USE_ASYNC_DOWNLOAD_BUFFER_SIZE (20*7)
-////#define LI_CAN_SLV_USE_ASYNC_TUNNEL
-//
+//#define LI_CAN_SLV_USE_ASYNC_TUNNEL
 //#define LI_CAN_SLV_USE_ASYNC_UPLOAD
 
 /*--------------------------------------------------------------------------*/
 /* HW/architecture definitions                                              */
 /*--------------------------------------------------------------------------*/
 #define LI_CAN_SLV_ARCH_SET_BYTE_ORDER_LITTLE_ENDIAN
-//#define LI_CAN_SLV_ARCH_USE_CANPIE_ADAPTER_ERROR_HANDLER
+
 #define LI_CAN_SLV_ARCH_USE_CANPIE_CH1_FOR_MAIN_NODE
+//#define LI_CAN_SLV_ARCH_USE_CANPIE_ADAPTER_ERROR_HANDLER
 #define LI_CAN_SLV_ARCH_MAIN_NODE_MAX_NOF_MSG_OBJ (32)
 
 /*--------------------------------------------------------------------------*/

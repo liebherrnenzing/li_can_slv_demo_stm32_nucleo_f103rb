@@ -35,14 +35,20 @@ extern "C" {
 /*--------------------------------------------------------------------------*/
 /* included files                                                           */
 /*--------------------------------------------------------------------------*/
-//#include "printf.h"
+#include "li_can_slv_config.h"
 
 /*--------------------------------------------------------------------------*/
 /* general definitions                                                      */
 /*--------------------------------------------------------------------------*/
-//#define LI_CAN_SLV_DEBUG_PRINT printf
-#define LI_CAN_SLV_DEBUG_PRINT
+#ifdef LI_CAN_SLV_DEBUG
+#ifdef ZF_LOG
+#define ZF_LOG_LEVEL ZF_LOG_DEBUG
+#define ZF_LOG_TAG "LCS"
+#include "zf_log.h"
+#endif // #ifdef ZF_LOG
+#endif // #ifdef LI_CAN_SLV_DEBUG
 
+#define LI_CAN_SLV_DEBUG_PRINT ZF_LOGD
 /*--------------------------------------------------------------------------*/
 /* structure/type definitions                                               */
 /*--------------------------------------------------------------------------*/

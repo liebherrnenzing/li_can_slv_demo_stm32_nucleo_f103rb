@@ -34,6 +34,14 @@
 #include "io_app_ma_w.h"
 #endif
 
+#ifdef LI_CAN_SLV_USE_ASYNC_DOWNLOAD
+#include "li_can_slv_dload_handler.h"
+#endif // #ifdef LI_CAN_SLV_USE_ASYNC_DOWNLOAD
+
+#ifdef LI_CAN_SLV_USE_ASYNC_UPLOAD
+#include "li_can_slv_uload_handler.h"
+#endif // #ifdef LI_CAN_SLV_USE_ASYNC_UPLOAD
+
 #ifdef LI_CAN_SLV_USE_SYS_CHANGE_MODULE_NUMBER
 #include "io_app_module_change.h"
 #endif
@@ -79,25 +87,14 @@ static void process_req_whole_image_ok_callback(void);
 /*--------------------------------------------------------------------------*/
 /* function prototypes (private/not exported)                               */
 /*--------------------------------------------------------------------------*/
-
+extern int __io_putchar(int ch) __attribute__((weak));
 
 /*--------------------------------------------------------------------------*/
 /* function definition (public/exported)                                    */
 /*--------------------------------------------------------------------------*/
-void app_main(void)
+void _putchar(char character)
 {
-	lcsa_errorcode_t err = LCSA_ERROR_OK;
-
-	err = app_init();
-	printf("\napp init: %04X", err);
-
-	if (err == LCSA_ERROR_OK)
-	{
-		err = app_start();
-		printf("\napp start: %04X", err);
-	}
-
-	(void) lcsa_start();
+	__io_putchar(character);
 }
 
 lcsa_errorcode_t app_init(void)
@@ -106,6 +103,7 @@ lcsa_errorcode_t app_init(void)
 	lcsa_errorcode_t err = LCSA_ERROR_OK;
 	lcsa_errorcode_t err2 = LCSA_ERROR_OK;
 	lcsa_module_number_t module_number;
+
 
 #ifdef LI_CAN_SLV_DLOAD
 	(void)lcsa_dload_set_start_handle(li_can_slv_dload_start_handle);
@@ -177,10 +175,52 @@ lcsa_errorcode_t app_init(void)
 	}
 #endif // #ifdef APP_MA_W
 
+
+#ifdef APP_MA_W2
+	/*-------------------------------------------------------------------*/
+	/* Initialization of the MA_W module if the tuple is available       */
+	/*-------------------------------------------------------------------*/
+	if (err == LCSA_ERROR_OK)
+	{
+		module_number = module_number + 1;
+		err = app_ma_w_init(1, module_number);
+
+		if (err != LCSA_ERROR_OK)
+		{
+			lcsa_send_sensor_error(err, ERR_LVL_CRITICAL, module_number);
+			lcsa_send_sensor_error(ERR_MSG_CAN_ERR_NOT_DEFINED, ERR_LVL_CRITICAL, module_number);
+			err2 = lcsa_set_module_critical(APP_MA_W_MODULE_TYPE);
+			if ((err2 != LCSA_ERROR_OK) && (err2 != LCSA_ERROR_CONFIG_MODULE_TYPE_NOT_FOUND))
+			{
+#ifdef APP_DEBUG
+				printf("\n set critical not possible");
+#endif
+			}
+		}
+	}
+#endif // #ifdef APP_MA_W2
+
+
 #include "tim_ext.h"
 	tim_ecoder_init();
 
 	return LCSA_ERROR_OK;
+}
+
+void app_main(void)
+{
+	lcsa_errorcode_t err = LCSA_ERROR_OK;
+
+	err = app_init();
+	//printf("\napp init: %04X", err);
+
+	if (err == LCSA_ERROR_OK)
+	{
+		err = app_start();
+		//printf("\napp start: %04X", err);
+	}
+
+	(void) lcsa_start();
 }
 
 lcsa_errorcode_t app_start(void)

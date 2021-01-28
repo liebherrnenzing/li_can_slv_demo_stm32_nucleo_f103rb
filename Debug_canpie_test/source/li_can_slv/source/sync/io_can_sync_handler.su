@@ -1,0 +1,4 @@
+io_can_main_hw_inline.h:71:47:can_main_synchron_rx	32	static
+io_can_main_hw_inline.h:98:47:can_main_synchron_tx	32	static
+io_can_sync_handler.c:102:9:can_sync_handler_rx	64	static
+io_can_sync_handler.c:330:9:can_sync_handler_tx	32	static

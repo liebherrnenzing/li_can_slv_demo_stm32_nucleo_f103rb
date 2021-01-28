@@ -1,0 +1,15 @@
+io_can_main.c:394:24:can_main_init	16	static
+io_can_main.c:428:24:can_main_process_start	4	static
+io_can_main.c:439:24:can_main_process_stop	4	static
+io_can_main.c:452:24:can_main_sync_process_tx_data_cnfg	24	static
+io_can_main.c:487:6:can_main_synchron_tx_data_off	24	static
+io_can_main.c:502:6:can_main_synchron_tx_data_on	24	static
+io_can_main.c:518:24:can_main_msg_obj_rx_data_cnfg	16	static
+io_can_main.c:539:24:can_main_msg_obj_tx_data_cnfg	16	static
+io_can_main.c:604:24:can_main_send_queue_system_tx	24	static
+io_can_main.c:620:24:can_main_process_data_tx_set	8	static
+io_can_main.c:656:24:can_main_enable	16	static
+io_can_main.c:681:24:can_main_disable	16	static
+io_can_main.c:699:6:can_main_sync_process_tx_data	40	static
+io_can_main.c:841:24:can_main_define_msg_obj	40	static
+io_can_main.c:915:24:can_main_get_next_free_msg_obj	24	static

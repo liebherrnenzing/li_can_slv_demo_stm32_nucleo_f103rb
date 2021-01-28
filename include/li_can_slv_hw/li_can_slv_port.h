@@ -36,23 +36,17 @@ extern "C" {
 /* included files                                                           */
 /*--------------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
+#include "main.h"
+#include <string.h>
 
 #ifdef LI_CAN_SLV_USE_ASYNC_TUNNEL
 #include "com_echo_example.h"
 #endif // #ifdef LI_CAN_SLV_USE_ASYNC_TUNNEL
 
-#include "main.h"
-#include <string.h>
-
-#ifdef LI_CAN_SLV_USE_ASYNC_DOWNLOAD
-#include "li_can_slv_xload_handler.h"
-#endif // #ifdef LI_CAN_SLV_USE_ASYNC_DOWNLOAD
-
-
 /*--------------------------------------------------------------------------*/
 /* general definitions                                                      */
 /*--------------------------------------------------------------------------*/
-#define LI_CAN_SLV_PORT_STATIC_INLINE __STATIC_INLINE
+#define LI_CAN_SLV_PORT_STATIC_INLINE	__STATIC_INLINE
 
 #define li_can_slv_port_nop()	__NOP()
 
@@ -92,7 +86,7 @@ extern "C" {
 
 #define li_can_slv_port_sw_reset() NVIC_SystemReset()
 
-#define li_can_slv_port_transceiver_enable()	
+#define li_can_slv_port_transceiver_enable()
 #define li_can_slv_port_transceiver_disable()	
 
 #ifdef LI_CAN_SLV_USE_ASYNC_DOWNLOAD_BUFFER_EXTERNAL

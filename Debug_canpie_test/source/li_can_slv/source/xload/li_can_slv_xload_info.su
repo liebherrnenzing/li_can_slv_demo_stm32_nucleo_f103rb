@@ -1,0 +1,11 @@
+li_can_slv_xload_info.c:77:24:li_can_slv_xload_info_init	16	static
+li_can_slv_xload_info.c:129:6:li_can_slv_xload_info_clean	8	static
+li_can_slv_xload_info.c:149:6:li_can_slv_xload_info_check_crc	24	static
+li_can_slv_xload_info.c:175:6:li_can_slv_xload_info_set_mode	16	static
+li_can_slv_xload_info.c:185:6:li_can_slv_xload_info_get_mode	16	static
+li_can_slv_xload_info.c:215:6:li_can_slv_xload_info_get	16	static
+li_can_slv_xload_info.c:224:6:li_can_slv_xload_info_set_dload_component	16	static
+li_can_slv_xload_info.c:235:6:li_can_slv_xload_info_get_dload_component	16	static
+li_can_slv_xload_info.c:243:6:li_can_slv_xload_info_set_can_baudrate	16	static
+li_can_slv_xload_info.c:252:6:li_can_slv_xload_info_get_can_baudrate	16	static
+li_can_slv_xload_info.c:299:13:li_can_slv_xload_info_update_crc	8	static

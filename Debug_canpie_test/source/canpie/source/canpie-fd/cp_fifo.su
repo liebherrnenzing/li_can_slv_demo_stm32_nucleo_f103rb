@@ -1,0 +1,9 @@
+cp_fifo.c:50:25:CpFifoDataInPtr	16	static
+cp_fifo.c:66:25:CpFifoDataOutPtr	16	static
+cp_fifo.c:82:21:CpFifoFree	24	static
+cp_fifo.c:113:17:CpFifoIncIn	16	static
+cp_fifo.c:139:17:CpFifoIncOut	16	static
+cp_fifo.c:166:17:CpFifoInit	24	static
+cp_fifo.c:182:19:CpFifoIsEmpty	24	static
+cp_fifo.c:199:19:CpFifoIsFull	24	static
+cp_fifo.c:217:21:CpFifoPending	24	static

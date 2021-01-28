@@ -1,0 +1,4 @@
+io_can_quality.c:114:24:can_quality_init	4	static
+io_can_quality.c:119:24:can_quality_process	16	static
+io_can_quality.c:128:24:can_quality_current_get	16	static
+io_can_quality.c:134:24:can_quality_get	16	static

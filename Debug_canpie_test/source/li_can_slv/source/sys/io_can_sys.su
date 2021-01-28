@@ -1,0 +1,10 @@
+io_can_sys.c:129:24:can_sys_init	4	static
+io_can_sys.c:168:24:can_sys_msg_rx	56	static
+io_can_sys.c:506:24:can_sys_send_error_full	32	static
+io_can_sys.c:544:24:can_sys_set_first_status_request_call_fnc	16	static
+io_can_sys.c:601:31:can_sys_status_ackn	40	static
+io_can_sys.c:645:47:can_sys_status_ackn_send	32	static
+io_can_sys.c:704:31:can_sys_version_ackn	48	static
+io_can_sys.c:751:47:can_sys_version_ackn_send_version1	32	static
+io_can_sys.c:771:47:can_sys_version_ackn_send_version2	32	static
+io_can_sys.c:802:31:can_sys_set_silent_awake	40	static

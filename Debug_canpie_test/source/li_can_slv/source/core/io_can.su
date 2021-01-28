@@ -1,0 +1,7 @@
+io_can.c:111:24:li_can_slv_init	40	static
+io_can.c:323:24:li_can_slv_deinit	8	static
+io_can.c:358:24:li_can_slv_process	8	static
+io_can.c:397:24:li_can_slv_set_node_mode	24	static
+io_can.c:410:24:li_can_slv_get_node_mode	4	static
+io_can.c:415:6:lcsa_set_state	16	static
+io_can.c:420:14:lcsa_get_state	4	static

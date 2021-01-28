@@ -1,0 +1,7 @@
+io_app_demo_canpie_test.c:84:18:app_init	16	static
+io_app_demo_canpie_test.c:118:6:app_main	16	static,ignoring_inline_asm
+io_app_demo_canpie_test.c:167:18:app_start	4	static
+io_app_demo_canpie_test.c:172:6:app_process_5msec	4	static
+io_app_demo_canpie_test.c:180:9:canpie_tx_handler	24	static
+io_app_demo_canpie_test.c:187:9:canpie_rx_handler	24	static
+io_app_demo_canpie_test.c:195:9:canpie_err_handler	16	static

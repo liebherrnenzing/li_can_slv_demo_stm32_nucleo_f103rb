@@ -48,6 +48,9 @@ extern "C" {
 #define APP_MA_W
 #define APP_MA_W_SIM
 
+//#define APP_MA_W2
+#define APP_MA_W_NUM_OF_MODULES 2
+
 /** @} */
 
 /*--------------------------------------------------------------------------*/
